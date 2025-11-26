@@ -54,22 +54,6 @@ public class Person {
     @Column(name = "created_at", nullable = false, updatable = false)
     private Instant createdAt;
 
-    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Appointment> clientAppointmentList = new ArrayList<>();
-
-    @OneToMany(mappedBy = "trainer", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Appointment> trainerAppointmentList = new ArrayList<>();
-
-    @OneToMany(mappedBy = "trainer",cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<TrainerScheduleSlot> trainerScheduleSlots = new ArrayList<>();
-
-    @OneToMany(mappedBy = "client",cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Progress> progressList = new ArrayList<>();
-
-    @OneToOne(mappedBy = "client",cascade = CascadeType.ALL, orphanRemoval = true)
-    private Goals goal;
-
-
     public Person() {
 
     }
@@ -157,45 +141,6 @@ public class Person {
         this.createdAt = createdAt;
     }
 
-    public List<Appointment> getClientAppointmentList() {
-        return clientAppointmentList;
-    }
-
-    public void setClientAppointmentList(List<Appointment> clientAppointmentList) {
-        this.clientAppointmentList = clientAppointmentList;
-    }
-
-    public List<Appointment> getTrainerAppointmentList() {
-        return trainerAppointmentList;
-    }
-
-    public void setTrainerAppointmentList(List<Appointment> trainerAppointmentList) {
-        this.trainerAppointmentList = trainerAppointmentList;
-    }
-
-    public List<Progress> getProgressList() {
-        return progressList;
-    }
-
-    public void setProgressList(List<Progress> progressList) {
-        this.progressList = progressList;
-    }
-
-    public List<TrainerScheduleSlot> getTrainerScheduleSlots() {
-        return trainerScheduleSlots;
-    }
-
-    public void setTrainerScheduleSlots(List<TrainerScheduleSlot> trainerScheduleSlots) {
-        this.trainerScheduleSlots = trainerScheduleSlots;
-    }
-
-    public Goals getGoal() {
-        return goal;
-    }
-
-    public void setGoal(Goals goal) {
-        this.goal = goal;
-    }
 
     @Override
     public String toString(){

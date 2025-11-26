@@ -66,25 +66,25 @@ public class TestController {
         trainerScheduleSlot.setTrainer(trainer);
         trainerScheduleSlot.setAppointment(null);
         trainerScheduleSlotRepository.save(trainerScheduleSlot);
-
-        // appointment test
-        Appointment appointment = new Appointment();
-        appointment.setClient(client);
-        appointment.setTrainer(trainer);
-        appointment.setStatus("PENDING");
-        appointment.setNotes("dummy notes");
-        appointment.setOutdoor(false);
-        appointment.setTrainerScheduleSlot(trainerScheduleSlot);
-        appointmentRepository.save(appointment);
-
-        // trainer schedule slot test (taken slot)
-        trainerScheduleSlot = new TrainerScheduleSlot();
-        trainerScheduleSlot.setEndDateTime("dummy end time2");
-        trainerScheduleSlot.setStartDateTime("dummy start time2");
-        trainerScheduleSlot.setTrainer(trainer);
-        trainerScheduleSlot.setStatus(TrainerSlotAvailability.BOOKED);
-        trainerScheduleSlot.setAppointment(appointment);
-        trainerScheduleSlotRepository.save(trainerScheduleSlot);
+//
+//        // appointment test
+//        Appointment appointment = new Appointment();
+//        appointment.setClient(client);
+//        appointment.setTrainer(trainer);
+//        appointment.setStatus("PENDING");
+//        appointment.setNotes("dummy notes");
+//        appointment.setOutdoor(false);
+//        appointment.setTrainerScheduleSlot(trainerScheduleSlot);
+//        appointmentRepository.save(appointment);
+//
+//        // trainer schedule slot test (taken slot)
+//        trainerScheduleSlot = new TrainerScheduleSlot();
+//        trainerScheduleSlot.setEndDateTime("dummy end time2");
+//        trainerScheduleSlot.setStartDateTime("dummy start time2");
+//        trainerScheduleSlot.setTrainer(trainer);
+//        trainerScheduleSlot.setStatus(TrainerSlotAvailability.BOOKED);
+//        trainerScheduleSlot.setAppointment(appointment);
+//        trainerScheduleSlotRepository.save(trainerScheduleSlot);
 
         // progress test
         Progress progress = new Progress();

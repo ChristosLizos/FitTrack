@@ -18,6 +18,7 @@ public class Progress {
 
     @ManyToOne
     @JoinColumn(name = "fk_client",nullable = false)
+    //TODO CHANGE TO CLIENT PROFILE MAYBE
     private Person client;
 
     @CreationTimestamp

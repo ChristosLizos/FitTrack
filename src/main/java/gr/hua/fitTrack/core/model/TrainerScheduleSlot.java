@@ -12,7 +12,8 @@ public class TrainerScheduleSlot {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "fk_trainer",nullable = false)
+    //TODO MAKE NULLABLE FALSE WHEN TRAINER SCHEDULE SLOT IS READY TO BE CREATED
+    @JoinColumn(name = "fk_trainer"/*,nullable = false*/)
     private Person trainer;
 
     @Column(name = "start_date_time",nullable = false,length = 50)

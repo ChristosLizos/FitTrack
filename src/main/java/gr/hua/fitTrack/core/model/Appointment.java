@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 @Table(
         name = "appointment"
 )
+//TODO CHANGE
 
 public class Appointment {
 
@@ -14,13 +15,14 @@ public class Appointment {
     @Column(name = "id")
     private Long id;
 
+    //TODO CHANGE TO CLIENTPROFILE
     @ManyToOne
     @JoinColumn(name = "fk_client",nullable = false)
     private Person client;
 
     @ManyToOne
     @JoinColumn(name = "fk_trainer", nullable = false)
-    private Person trainer;
+    private TrainerProfile trainer;
 
     @OneToOne
     @JoinColumn(name = "fk_trainer_schedule_slot",nullable = false, unique = true)
@@ -40,7 +42,7 @@ public class Appointment {
 
     }
 
-    public Appointment(Person client, Person trainer,TrainerScheduleSlot trainerScheduleSlot, String status, boolean isOutdoor,String notes) {
+    public Appointment(Person client, TrainerProfile trainer,TrainerScheduleSlot trainerScheduleSlot, String status, boolean isOutdoor,String notes) {
         this.notes = notes;
         this.trainerScheduleSlot = trainerScheduleSlot;
         this.client = client;
@@ -65,11 +67,11 @@ public class Appointment {
         this.client = client;
     }
 
-    public Person getTrainer() {
+    public TrainerProfile getTrainer() {
         return trainer;
     }
 
-    public void setTrainer(Person trainer) {
+    public void setTrainer(TrainerProfile trainer) {
         this.trainer = trainer;
     }
 

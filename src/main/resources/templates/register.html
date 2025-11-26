@@ -107,11 +107,11 @@
     <!--FORM CONTAINER-->
     <div class="form-container" >
             <!--FORM-->
-            <form onsubmit="event.preventDefault(); window.location='/register';">
+            <form th:action="@{/register}" method="POST" th:object="${createPersonRequest}">
                 <!--ROLE-->
                 <div class="mb-3">
-                    <label class="form-label">Role: </label>
-                    <select name ="role" class="form-control" >
+                    <label class="form-label" >Role: </label>
+                    <select th:field="*{type}" class="form-control" >
                         <option style="" value="CLIENT">Client</option>
                         <option value="TRAINER">Trainer</option>
                     </select>
@@ -119,33 +119,33 @@
                 <!--FIRST NAME-->
                 <div class="mb-3">
                     <label class="form-label">First Name: </label>
-                    <input type = "text" name = "firstname" placeholder = "First Name" required class="form-control">
+                    <input  th:field="*{firstName}" placeholder = "First Name" required class="form-control">
                 </div>
                 <!--LAST NAME-->
                 <div class="mb-3">
                     <label class="form-label">Last Name: </label>
-                    <input type = "text" name = "lastname" placeholder = "Last Name" required class="form-control">
+                    <input th:field="*{lastName}" placeholder = "Last Name" required class="form-control">
                 </div>
                 <!--AGE-->
                 <div class="mb-3">
                     <label class="form-label">Age: </label>
-                    <input type = "text" name = "age" placeholder = "Age" required  class="form-control">
+                    <input th:field="*{age}" placeholder = "Age" required  class="form-control">
                 </div>
                 <!--EMAIL-->
                 <div class="mb-3">
                     <label class="form-label">Email: </label>
-                    <input type = "text" name = "email" placeholder = "Email" required  class="form-control">
+                    <input th:field="*{emailAddress}" placeholder = "Email" required  class="form-control">
                 </div>
                 <!--PHONE NUMBER-->
                 <div class="mb-3">
                     <label class="form-label">Phone Number: </label>
-                    <input type = "text" name = "phoneNumber" placeholder = "Phone Number" required  class="form-control">
+                    <input th:field="*{phoneNumber}" placeholder = "Phone Number" required  class="form-control">
                 </div>
                 <!--PASSWORD RAW-->
                 <div class="mb-3">
                     <label class="form-label">Password: </label>
-                    <!--input th:field="*{passwordRaw}" -->
-                    <input type = "text" name = "password" placeholder = "Password" required  class="form-control">
+                    <!--TODO: RAW PASSWORD, NOT HASH-->
+                    <input th:field="*{rawPassword}"placeholder = "Password" required  class="form-control">
                 </div>
                 <br>
                 <!--REGISTER BUTTON-->
