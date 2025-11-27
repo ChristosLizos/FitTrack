@@ -12,6 +12,10 @@ public interface TrainerService {
 
     CreateTrainerResult createTrainerProfile(final CreateTrainerRequest createTrainerRequest, final boolean notify);
 
+    default CreateTrainerResult createTrainerProfile(final CreateTrainerRequest createTrainerRequest) {
+        return this.createTrainerProfile(createTrainerRequest, false);
+    }
+
     TrainerProfile updateTrainerProfile(int trainerProfileId, String specialization, String bio, String location);
 
     TrainerProfile getTrainerProfile(int trainerProfileId);

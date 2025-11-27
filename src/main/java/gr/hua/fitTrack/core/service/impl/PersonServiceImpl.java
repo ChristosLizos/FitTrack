@@ -78,6 +78,13 @@ public class PersonServiceImpl implements PersonService {
 
     }
 
+    @Override
+    public void deleteById(Long personId) {
+        if (personId==null) return;
+        if (!personRepository.existsById(personId)) return;
+        personRepository.deleteById(personId);
+    }
+
 
 
 

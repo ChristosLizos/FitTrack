@@ -166,15 +166,13 @@
             <input th:field="*{specialization}" placeholder = "Specialization" required class="form-control">
         </div>
         <label class="form-label" style="margin-left: 30px">Weekly Schedule: </label>
-
         <div class="schedule">
-
             <div class="schedule-row">
                 <label class="form-label day-label"> Monday:     </label>
                 <label class="form-label" >Start Time </label>
-                <select>
-                    <option value="">N/A</option>
-                    <option value="9:00">9:00</option>
+                <select th:field="*{startTimes[MONDAY]}">
+                    <option value="N/A" selected>N/A</option>
+                    <option value="09:00">09:00</option>
                     <option value="10:00">10:00</option>
                     <option value="11:00">11:00</option>
                     <option value="12:00">12:00</option>
@@ -191,9 +189,10 @@
                     <option value="23:00">23:00</option>
                 </select>
                 <label class="form-label" >End Time </label>
-                <select>
-                    <option value="">N/A</option>
-                    <option value="9:00">9:00</option>
+                <select th:field="*{endTimes[MONDAY]}"
+                  >
+                    <option value="N/A" selected>N/A</option>
+                    <option value="09:00">09:00</option>
                     <option value="10:00">10:00</option>
                     <option value="11:00">11:00</option>
                     <option value="12:00">12:00</option>
@@ -209,14 +208,13 @@
                     <option value="22:00">22:00</option>
                     <option value="23:00">23:00</option>
                 </select>
-
             </div>
             <div class="schedule-row">
                 <label class="form-label day-label"> Tuesday:     </label>
                 <label class="form-label" >Start Time </label>
-                <select  >
-                    <option value="">N/A</option>
-                    <option value="9:00">9:00</option>
+                <select th:field="*{startTimes[TUESDAY]}">
+                    <option value="N/A" selected>N/A</option>
+                    <option value="09:00">09:00</option>
                     <option value="10:00">10:00</option>
                     <option value="11:00">11:00</option>
                     <option value="12:00">12:00</option>
@@ -233,9 +231,9 @@
                     <option value="23:00">23:00</option>
                 </select>
                 <label class="form-label" >End Time </label>
-                <select>
-                    <option value="">N/A</option>
-                    <option value="9:00">9:00</option>
+                <select th:field="*{endTimes[TUESDAY]}">
+                    <option value="N/A" selected>N/A</option>
+                    <option value="09:00">09:00</option>
                     <option value="10:00">10:00</option>
                     <option value="11:00">11:00</option>
                     <option value="12:00">12:00</option>
@@ -251,14 +249,13 @@
                     <option value="22:00">22:00</option>
                     <option value="23:00">23:00</option>
                 </select>
-
             </div>
             <div class="schedule-row">
                 <label class="form-label day-label"> Wednesday:     </label>
                 <label class="form-label" >Start Time </label>
-                <select  >
-                    <option value="">N/A</option>
-                    <option value="9:00">9:00</option>
+                <select th:field="*{startTimes[WEDNESDAY]}" >
+                    <option value="N/A" selected>N/A</option>
+                    <option value="09:00">09:00</option>
                     <option value="10:00">10:00</option>
                     <option value="11:00">11:00</option>
                     <option value="12:00">12:00</option>
@@ -275,9 +272,9 @@
                     <option value="23:00">23:00</option>
                 </select>
                 <label class="form-label" >End Time </label>
-                <select>
-                    <option value="">N/A</option>
-                    <option value="9:00">9:00</option>
+                <select th:field="*{endTimes[WEDNESDAY]}">
+                    <option value="N/A" selected>N/A</option>
+                    <option value="09:00">09:00</option>
                     <option value="10:00">10:00</option>
                     <option value="11:00">11:00</option>
                     <option value="12:00">12:00</option>
@@ -293,14 +290,13 @@
                     <option value="22:00">22:00</option>
                     <option value="23:00">23:00</option>
                 </select>
-
             </div>
             <div class="schedule-row">
                 <label class="form-label day-label"> Thursday:     </label>
                 <label class="form-label" >Start Time </label>
-                <select>
-                    <option value="">N/A</option>
-                    <option value="9:00">9:00</option>
+                <select th:field="*{startTimes[THURSDAY]}">
+                    <option value="N/A" selected>N/A</option>
+                    <option value="09:00">09:00</option>
                     <option value="10:00">10:00</option>
                     <option value="11:00">11:00</option>
                     <option value="12:00">12:00</option>
@@ -317,9 +313,9 @@
                     <option value="23:00">23:00</option>
                 </select>
                 <label class="form-label" >End Time </label>
-                <select>
-                    <option value="">N/A</option>
-                    <option value="9:00">9:00</option>
+                <select th:field="*{endTimes[THURSDAY]}">
+                    <option value="N/A" selected>N/A</option>
+                    <option value="09:00">09:00</option>
                     <option value="10:00">10:00</option>
                     <option value="11:00">11:00</option>
                     <option value="12:00">12:00</option>
@@ -340,9 +336,9 @@
             <div class="schedule-row">
                 <label class="form-label day-label"> Friday:     </label>
                 <label class="form-label" >Start Time </label>
-                <select>
-                    <option value="">N/A</option>
-                    <option value="9:00">9:00</option>
+                <select th:field="*{startTimes[FRIDAY]}">
+                    <option value="N/A" selected>N/A</option>
+                    <option value="09:00">09:00</option>
                     <option value="10:00">10:00</option>
                     <option value="11:00">11:00</option>
                     <option value="12:00">12:00</option>
@@ -359,9 +355,9 @@
                     <option value="23:00">23:00</option>
                 </select>
                 <label class="form-label" >End Time </label>
-                <select>
-                    <option value="">N/A</option>
-                    <option value="9:00">9:00</option>
+                <select th:field="*{endTimes[FRIDAY]}">
+                    <option value="N/A" selected>N/A</option>
+                    <option value="09:00">09:00</option>
                     <option value="10:00">10:00</option>
                     <option value="11:00">11:00</option>
                     <option value="12:00">12:00</option>
@@ -382,9 +378,9 @@
             <div class="schedule-row">
                 <label class="form-label day-label"> Saturday:     </label>
                 <label class="form-label" >Start Time </label>
-                <select>
-                    <option value="">N/A</option>
-                    <option value="9:00">9:00</option>
+                <select th:field="*{startTimes[SATURDAY]}">
+                    <option value="N/A" selected>N/A</option>
+                    <option value="09:00">09:00</option>
                     <option value="10:00">10:00</option>
                     <option value="11:00">11:00</option>
                     <option value="12:00">12:00</option>
@@ -401,9 +397,9 @@
                     <option value="23:00">23:00</option>
                 </select>
                 <label class="form-label" >End Time </label>
-                <select>
-                    <option value="">N/A</option>
-                    <option value="9:00">9:00</option>
+                <select th:field="*{endTimes[SATURDAY]}">
+                    <option value="N/A" selected>N/A</option>
+                    <option value="09:00">09:00</option>
                     <option value="10:00">10:00</option>
                     <option value="11:00">11:00</option>
                     <option value="12:00">12:00</option>
@@ -424,9 +420,9 @@
             <div class="schedule-row">
                 <label class="form-label day-label"> Sunday:     </label>
                 <label class="form-label" >Start Time </label>
-                <select>
-                    <option value="">N/A</option>
-                    <option value="9:00">9:00</option>
+                <select th:field="*{startTimes[SUNDAY]}">
+                    <option value="N/A" selected>N/A</option>
+                    <option value="09:00">09:00</option>
                     <option value="10:00">10:00</option>
                     <option value="11:00">11:00</option>
                     <option value="12:00">12:00</option>
@@ -443,9 +439,9 @@
                     <option value="23:00">23:00</option>
                 </select>
                 <label class="form-label" >End Time </label>
-                <select>
-                    <option value="">N/A</option>
-                    <option value="9:00">9:00</option>
+                <select th:field="*{endTimes[SUNDAY]}">
+                    <option value="N/A" selected>N/A</option>
+                    <option value="09:00">09:00</option>
                     <option value="10:00">10:00</option>
                     <option value="11:00">11:00</option>
                     <option value="12:00">12:00</option>
@@ -463,7 +459,6 @@
                 </select>
             </div>
         </div>
-
         <!--REGISTER BUTTON-->
         <div class="mb-6" style="text-align: center;">
             <button type = "submit" class="btn-primary" style="color: #b6b6b6">Register</button>

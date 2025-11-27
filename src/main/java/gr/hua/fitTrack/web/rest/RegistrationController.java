@@ -50,6 +50,9 @@ public class RegistrationController {
         //TODO: Validation, UI errors
         final CreatePersonResult createPersonResult = personService.createPerson(createPersonRequest);
         if (createPersonResult.created()){
+            if(createPersonResult.personView().type().equals(PersonType.CLIENT)){
+                return "redirect:/clientProfileCreation?personId=" + createPersonResult.personView().id();
+            }
             return "redirect:/trainerProfileCreation?personId=" + createPersonResult.personView().id();
         }
         model.addAttribute("createPersonRequest",createPersonRequest);

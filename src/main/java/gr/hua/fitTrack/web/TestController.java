@@ -86,23 +86,6 @@ public class TestController {
 //        trainerScheduleSlot.setAppointment(appointment);
 //        trainerScheduleSlotRepository.save(trainerScheduleSlot);
 
-        // progress test
-        Progress progress = new Progress();
-        progress.setClient(client);
-        progress.setBodyFatPercentage(14);
-        progress.setWeight(65.2F);
-        progress.setTrainerNotes("some notes");
-        progress.setRunningTimeSeconds(7200);
-        progress.setWaterIntake(1200);
-        progressRepository.save(progress);
-
-        // Goals test
-        Goals goals = new Goals();
-        goals.setClient(client);
-        goals.setBodyFatPercentageGoal(7);
-        goals.setWeightGoal(60F);
-        goals.setRunningTimeGoal(9600);
-        goalsRepository.save(goals);
 
 
 

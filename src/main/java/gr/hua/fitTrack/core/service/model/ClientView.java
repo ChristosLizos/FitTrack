@@ -1,0 +1,16 @@
+package gr.hua.fitTrack.core.service.model;
+
+import gr.hua.fitTrack.core.model.Goals;
+import gr.hua.fitTrack.core.model.Progress;
+
+import java.util.List;
+
+public record ClientView (
+    int  clientId,
+    String firstName,
+    String lastName,
+    int weight,
+    int height,
+    Goals goals,
+    List<Progress> progress) {
+}

@@ -11,4 +11,5 @@ public interface PersonService {
         return this.createPerson(createPersonRequest, true);
     }
 
+    void deleteById(Long personId);
 }

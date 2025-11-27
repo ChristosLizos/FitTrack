@@ -8,10 +8,12 @@ import gr.hua.fitTrack.core.repository.PersonRepository;
 import gr.hua.fitTrack.core.repository.TrainerProfileRepository;
 import gr.hua.fitTrack.core.service.TrainerService;
 import gr.hua.fitTrack.core.service.mapper.TrainerMapper;
+import gr.hua.fitTrack.core.service.mapper.TrainerScheduleMapper;
 import gr.hua.fitTrack.core.service.model.CreateTrainerRequest;
 import gr.hua.fitTrack.core.service.model.CreateTrainerResult;
 import gr.hua.fitTrack.core.service.model.TrainerView;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -21,20 +23,22 @@ public class TrainerServiceImpl implements TrainerService {
     public final TrainerProfileRepository trainerProfileRepository;
     private final PersonRepository personRepository;
     private final TrainerMapper trainerMapper;
+    private final TrainerScheduleMapper trainerScheduleMapper;
 
     public  TrainerServiceImpl(TrainerProfileRepository trainerProfileRepository,
                                PersonRepository personRepository,
-                               TrainerMapper trainerMapper) {
+                               TrainerMapper trainerMapper, TrainerScheduleMapper trainerScheduleMapper) {
         if(trainerProfileRepository == null) throw new NullPointerException("trainerProfileRepository cannot be null");
         if(personRepository == null) throw new NullPointerException("personRepository cannot be null");
         if(trainerMapper == null)  throw new NullPointerException("trainerMapper cannot be null");
         this.trainerProfileRepository = trainerProfileRepository;
         this.personRepository = personRepository;
         this.trainerMapper = trainerMapper;
-
+        this.trainerScheduleMapper = trainerScheduleMapper;
     }
 
     @Override
+    @Transactional
     public CreateTrainerResult createTrainerProfile(final CreateTrainerRequest createTrainerRequest, final boolean notify){
         if (createTrainerRequest == null) throw new NullPointerException("createTrainerRequest cannot be null");
 
@@ -42,19 +46,27 @@ public class TrainerServiceImpl implements TrainerService {
         final String location = createTrainerRequest.location();
         final String specialization  = createTrainerRequest.specialization();
         final String clientNotes = createTrainerRequest.Client_Notes();
-        final List<TrainerWeeklyAvailability> trainerWeeklyAvailability = createTrainerRequest.trainerWeeklyAvailability();
-        final List<TrainerOverrideAvailability> trainerOverrideAvailability = createTrainerRequest.trainerOverrideAvailability();
 
         TrainerProfile trainerProfile = new TrainerProfile();
-        trainerProfile.setId(null); //auto-generated
+
         trainerProfile.setPerson(person);
         trainerProfile.setLocation(location);
         trainerProfile.setSpecialization(specialization);
         trainerProfile.setClientNotes(clientNotes);
-        trainerProfile.setWeeklyAvailability(trainerWeeklyAvailability);
-        trainerProfile.setOverrideAvailability(trainerOverrideAvailability);
 
-        trainerProfile = this.trainerProfileRepository.save(trainerProfile);
+// 1. Create weekly availability BEFORE saving the trainer
+        List<TrainerWeeklyAvailability> weeklyAvailability =
+                TrainerScheduleMapper.mapWeeklyAvailability(
+                        createTrainerRequest.startTimes(),
+                        createTrainerRequest.endTimes(),
+                        trainerProfile);
+
+// 2. Attach the availability to the trainer
+        trainerProfile.setWeeklyAvailability(weeklyAvailability);
+
+// 3. Now save ONCE -> cascades save availability rows
+        trainerProfile = trainerProfileRepository.save(trainerProfile);
+
 
         if(notify){
             final String content =String.format("You have succesfully registered for the Fit Track Application as a trainer. "

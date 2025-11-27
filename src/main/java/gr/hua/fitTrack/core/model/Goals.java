@@ -23,24 +23,24 @@ public class Goals {
     private int runningTimeGoal; // in seconds
 
     @OneToOne
-    @JoinColumn(name = "fk_client",nullable = false)
-    private Person client;
+    @JoinColumn(name = "client_id", nullable = false)
+    private ClientProfile client;
 
     public Goals() {
     }
 
-    public Goals(float weightGoal, int bodyFatPercentageGoal, int runningTimeGoal, Person client) {
+    public Goals(float weightGoal, int bodyFatPercentageGoal, int runningTimeGoal, ClientProfile client) {
         this.weightGoal = weightGoal;
         this.bodyFatPercentageGoal = bodyFatPercentageGoal;
         this.runningTimeGoal = runningTimeGoal;
         this.client = client;
     }
 
-    public Person getClient() {
+    public ClientProfile getClient() {
         return client;
     }
 
-    public void setClient(Person client) {
+    public void setClient(ClientProfile client) {
         this.client = client;
     }
 

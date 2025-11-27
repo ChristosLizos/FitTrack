@@ -18,8 +18,7 @@ public class Progress {
 
     @ManyToOne
     @JoinColumn(name = "fk_client",nullable = false)
-    //TODO CHANGE TO CLIENT PROFILE MAYBE
-    private Person client;
+    private ClientProfile client;
 
     @CreationTimestamp
     @Column(name = "entry_date", nullable = false, updatable = false)
@@ -37,15 +36,12 @@ public class Progress {
     @Column(name = "water_intake",nullable = false)
     private float waterIntake;
 
-    @Column(name = "trainer_notes")
-    private String trainerNotes;
 
     public Progress(){
 
     }
 
-    public Progress( Person client, float weight, Instant entryDate, int runningTimeSeconds, int bodyFatPercentage,float waterIntake,String trainerNotes) {
-        this.trainerNotes = trainerNotes;
+    public Progress( ClientProfile client, float weight, Instant entryDate, int runningTimeSeconds, int bodyFatPercentage,float waterIntake) {
         this.waterIntake = waterIntake;
         this.client = client;
         this.weight = weight;
@@ -62,11 +58,11 @@ public class Progress {
         this.id = id;
     }
 
-    public Person getClient() {
+    public ClientProfile getClient() {
         return client;
     }
 
-    public void setClient(Person client) {
+    public void setClient(ClientProfile client) {
         this.client = client;
     }
 
@@ -110,11 +106,4 @@ public class Progress {
         this.waterIntake = waterIntake;
     }
 
-    public String getTrainerNotes() {
-        return trainerNotes;
-    }
-
-    public void setTrainerNotes(String trainerNotes) {
-        this.trainerNotes = trainerNotes;
-    }
 }
