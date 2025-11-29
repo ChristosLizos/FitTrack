@@ -11,7 +11,7 @@ public class TrainerProfile {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @OneToOne
     @JoinColumn(name = "person_id", nullable = false,unique = true)
@@ -37,7 +37,7 @@ public class TrainerProfile {
 
     public TrainerProfile() {}
 
-    public TrainerProfile(Integer id,
+    public TrainerProfile(Long id,
                           Person person,
                           String location,
                           String specialization,
@@ -54,11 +54,11 @@ public class TrainerProfile {
         this.overrideAvailability = overrideAvailability;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

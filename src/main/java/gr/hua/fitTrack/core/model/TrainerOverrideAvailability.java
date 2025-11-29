@@ -12,7 +12,7 @@ public class TrainerOverrideAvailability {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "trainer_id", nullable = false)
@@ -40,7 +40,7 @@ public class TrainerOverrideAvailability {
                                        boolean isAvailable,
                                        LocalDate date,
                                        TrainerProfile trainer,
-                                       int id) {
+                                       Long id) {
         this.endTime = endTime;
         this.startTime = startTime;
         this.isAvailable = isAvailable;
@@ -49,11 +49,11 @@ public class TrainerOverrideAvailability {
         this.id = id;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

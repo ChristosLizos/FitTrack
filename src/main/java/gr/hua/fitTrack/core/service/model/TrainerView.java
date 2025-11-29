@@ -6,7 +6,7 @@ import gr.hua.fitTrack.core.model.TrainerWeeklyAvailability;
 import java.util.List;
 
 public record TrainerView(
-        int id,
+        Long id,
         String firstName,
         String lastName,
         String location,

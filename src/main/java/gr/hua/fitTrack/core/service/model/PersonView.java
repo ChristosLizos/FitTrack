@@ -3,7 +3,7 @@ package gr.hua.fitTrack.core.service.model;
 import gr.hua.fitTrack.core.model.PersonType;
 
 public record PersonView(
-        long id,
+        Long id,
         String firstName,
         String lastName,
         int age,
