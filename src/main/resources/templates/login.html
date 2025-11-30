@@ -116,19 +116,17 @@
     <!--FORM CONTAINER-->
     <div class="form-container" >
 
-        <form onsubmit="event.preventDefault(); window.location='/login';">
-            <!--EMAIL-->
+        <form th:action="@{/login}" method="post">
+            <!-- USERNAME -->
             <div class="mb-3">
-                <label class="form-label">Email: </label>
-                <!--input th:field="*{email}" -->
-                <input type = "text" name = "email" placeholder = "Email" required  class="form-control">
+                <label class="form-label">Email:</label>
+                <input type="text" name="username" placeholder="test" required class="form-control">
             </div>
-            <!--PASSWORD-->
-            <div class="mb-3">
-                <label class="form-label">Password: </label>
-                <!--input th:field="*{passwordRaw}" -->
-                <input type = "text" name = "password" placeholder = "Password" required  class="form-control">
 
+            <!-- PASSWORD -->
+            <div class="mb-3">
+                <label class="form-label">Password:</label>
+                <input type="password" name="password" placeholder="Password" required class="form-control">
             </div>
             <br>
             <!--LOGIN BUTTON-->
