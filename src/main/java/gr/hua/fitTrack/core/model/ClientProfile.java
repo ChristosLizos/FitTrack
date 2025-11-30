@@ -8,7 +8,7 @@ import java.util.List;
 public class ClientProfile {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @OneToOne
     @JoinColumn(name = "person_id", nullable = false,unique = true)
@@ -28,7 +28,7 @@ public class ClientProfile {
 
     public ClientProfile() {
     }
-    public ClientProfile(int id, Person person, int weight, int height, Goals goals, List<Progress> progress) {
+    public ClientProfile(Long id, Person person, int weight, int height, Goals goals, List<Progress> progress) {
         this.id = id;
         this.person = person;
         this.weight = weight;
@@ -45,11 +45,11 @@ public class ClientProfile {
         this.person = person;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

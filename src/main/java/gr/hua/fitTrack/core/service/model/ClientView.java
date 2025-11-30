@@ -6,7 +6,7 @@ import gr.hua.fitTrack.core.model.Progress;
 import java.util.List;
 
 public record ClientView (
-    int  clientId,
+        Long  clientId,
     String firstName,
     String lastName,
     int weight,

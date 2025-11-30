@@ -13,7 +13,7 @@ public class TrainerWeeklyAvailability {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "trainer_profile_id", nullable = false)
@@ -31,7 +31,7 @@ public class TrainerWeeklyAvailability {
 
     public TrainerWeeklyAvailability() {}
 
-    public TrainerWeeklyAvailability(int id, TrainerProfile trainerProfile, Weekday weekday, LocalTime startTime, LocalTime endTime) {
+    public TrainerWeeklyAvailability(Long id, TrainerProfile trainerProfile, Weekday weekday, LocalTime startTime, LocalTime endTime) {
         this.id = id;
         this.trainerProfile = trainerProfile;
         this.weekday = weekday;
@@ -39,7 +39,7 @@ public class TrainerWeeklyAvailability {
         this.endTime = endTime;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
@@ -59,7 +59,7 @@ public class TrainerWeeklyAvailability {
         return endTime;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
