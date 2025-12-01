@@ -1,258 +1,197 @@
-FIT TRACK
-Connecting trainers and clients through smart scheduling, progress analytics, and personalized programs.
-<p align="center"> <img src="src/main/resources/static/images/logo.png" alt="FitTrack Logo" width="170"> </p>
-Project Status: In Production / Actively Developed
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
 
-FitTrack is currently under active development. Features, APIs, and UI components may evolve as the system expands.
+<h1>FitTrack – Fitness Management Platform</h1>
 
-Overview
+<img src="/static/images/logo.png" alt="FitTrack Logo" width="140"/>
 
-FitTrack is a full-stack fitness management platform built with Java, Spring Boot, Thymeleaf, and PostgreSQL.
-It provides a modern ecosystem where:
+<p><strong>Status:</strong> In Production / Actively Developed</p>
 
-Trainers can register, define their availability, and specify specializations.
+<p><strong>Academic Note:</strong>  
+This project was developed as part of a university course at Harokopio University of Athens, focusing on full-stack application architecture, software engineering practices, and database-driven system design.</p>
 
-Clients can create personalized profiles with fitness goals, such as weight, body fat percentage, and running time.
+<p>
+FitTrack is a full-stack fitness management system built with Java, Spring Boot, Thymeleaf, and PostgreSQL. 
+It provides an ecosystem where clients create fitness profiles with personal goals, while trainers define weekly 
+availability and specializations. Users can browse trainers through a searchable directory, and the platform 
+maintains a clean architecture with well-defined layers. The app is a 
+</p>
 
-Both roles interact through a clean UI, including trainer search, profile dashboards, and integrated scheduling features.
+<hr>
 
-The system is built with a modular architecture, following clean boundaries between controllers, services, repositories, and views.
+<h2>Overview</h2>
 
-Features
-User Management
+<p>The platform supports:</p>
 
-Registration with role selection (Client or Trainer)
+<ul>
+    <li>Client and Trainer registration flows</li>
+    <li>Client profile creation with metrics and goals</li>
+    <li>Trainer profile creation with weekly availability</li>
+    <li>A searchable public Trainers Directory</li>
+    <li>Custom interface using the Ultimate font and FitTrack branding</li>
+</ul>
 
-Email, age, contact information, and secure password submission
+<hr>
 
-Redirect to profile creation flow based on role
+<h2>Features</h2>
 
-Client Features
+<h3>User Management</h3>
+<ul>
+    <li>Role selection during registration</li>
+    <li>Email, age, and contact information collection</li>
+    <li>Secure password submission</li>
+    <li>Automatic redirect to role-specific profile forms</li>
+</ul>
 
-Profile creation with:
+<h3>Client Features</h3>
+<ul>
+    <li>Current metrics: weight, height</li>
+    <li>Goals: target weight, body fat %, running time</li>
+</ul>
 
-Current metrics (weight, height)
+<h3>Trainer Features</h3>
+<ul>
+    <li>Location and specialization fields</li>
+    <li>Full weekly schedule (Mon–Sun) with start/end hours</li>
+    <li>Visibility in the public Trainer Directory</li>
+</ul>
 
-Fitness goals (weight target, body fat %, running time)
+<h3>Trainer Directory</h3>
+<ul>
+    <li>List of all trainers</li>
+    <li>Filters by last name, location, and specialization</li>
+    <li>Rendered dynamically using Thymeleaf</li>
+</ul>
 
-Future support for:
+<h3>UI & Branding</h3>
+<ul>
+    <li>Custom theme using the Ultimate font (stored in <code>/static/fonts/</code>)</li>
+    <li>Responsive forms and consistent layout</li>
+    <li>Pages include: Homepage, Login, Register, Profile Creation, Trainer Directory</li>
+</ul>
 
-Workout plans
+<hr>
 
-Progress tracking dashboards
+<h2>Project Structure</h2>
 
-Trainer Features
-
-Profile creation with:
-
-Location & specialization
-
-Weekly availability table (Mon–Sun with start/end hours)
-
-Appears in the public Trainers Directory
-
-Trainer Search Directory
-
-Users can browse all registered trainers
-
-Search filters:
-
-Last name
-
-Location
-
-Specialization
-
-Real-time results rendered with Thymeleaf
-
-UI & UX
-
-Modern custom branding using your Ultimate font
-
-Fully responsive forms
-
-Clean layout with consistent theming and a custom logo
-
-Screens include:
-
-Homepage
-
-Login / Register
-
-Trainer Directory
-
-Trainer Profile Creation
-
-Client Profile Creation
-
-Screenshots
-Homepage
-
-Registration
-
-Login
-
-Trainer Directory
-
-Architecture
-
-FitTrack follows a layered, domain-driven structure:
-
+<pre>
 gr.hua.fitTrack
- ├─ api
- │   └─ Controllers (HTTP endpoints)
- │
- ├─ core
- │   ├─ domain (Entities, enums, business rules)
- │   ├─ repository (Repository interfaces)
- │   └─ service (Business logic)
- │
- ├─ database
- │   └─ jpa (JPA entities, Spring Data repositories, DB mappings)
- │
- └─ FitTrackApplication.java
+├── api
+│   └── Controllers (HTTP endpoints)
+├── core
+│   ├── domain       (Entities, enums, domain logic)
+│   ├── repository   (Repository interfaces)
+│   └── service      (Business logic)
+├── database
+│   └── jpa          (JPA entities, ORM mappings)
+└── FitTrackApplication.java
+</pre>
 
-Flow Example: Creating a Trainer
+<hr>
 
-User submits Trainer Profile Form
+<h2>Domain Model</h2>
 
-TrainerProfileCreationController receives request
+<h3>Core Tables</h3>
+<ul>
+    <li>Person</li>
+    <li>TrainerProfile</li>
+    <li>ClientProfile</li>
+    <li>WeeklySchedule</li>
+</ul>
 
-Controller creates CreateTrainerRequest
+<h3>Relationships</h3>
+<ul>
+    <li>One Person → One TrainerProfile</li>
+    <li>One Person → One ClientProfile</li>
+    <li>One TrainerProfile → Many WeeklySchedule entries</li>
+</ul>
 
-Passed to TrainerService
+<hr>
 
-Service validates, constructs domain model
+<h2>Tech Stack</h2>
 
-Persists via JPA Repository
+<h3>Backend</h3>
+<ul>
+    <li>Java 17 / 21</li>
+    <li>Spring Boot</li>
+    <li>Spring MVC</li>
+    <li>Spring Data JPA</li>
+    <li>Hibernate</li>
+    <li>PostgreSQL</li>
+</ul>
 
-Returns CreateTrainerResult
+<h3>Frontend</h3>
+<ul>
+    <li>Thymeleaf</li>
+    <li>Custom CSS + Ultimate font</li>
+    <li>Bootstrap 5</li>
+</ul>
 
-Controller redirects user to /login
+<h3>Build</h3>
+<ul>
+    <li>Maven</li>
+    <li>Surefire test runner</li>
+</ul>
 
-Database – ER Diagram
+<hr>
 
-A clean conceptual diagram describing the core domain:
+<h2>Setup Instructions</h2>
 
-erDiagram
-
-    PERSON {
-        Long id
-        String firstName
-        String lastName
-        int age
-        String email
-        String phone
-        String passwordHash
-        PersonType type
-    }
-
-    TRAINER_PROFILE {
-        Long id
-        Long personId
-        String location
-        String specialization
-    }
-
-    CLIENT_PROFILE {
-        Long id
-        Long personId
-        int weight
-        int height
-        int targetWeight
-        int targetBodyFat
-        int runningTimeGoal
-    }
-
-    WEEKLY_SCHEDULE {
-        Long id
-        Long trainerId
-        Weekday day
-        String startTime
-        String endTime
-    }
-
-    PERSON ||--|| TRAINER_PROFILE : "has one"
-    PERSON ||--|| CLIENT_PROFILE : "has one"
-    TRAINER_PROFILE ||--{ WEEKLY_SCHEDULE : "defines"
-
-Tech Stack
-Backend
-
-Java 17
-
-Spring Boot
-
-Spring MVC
-
-Spring Data JPA
-
-Hibernate
-
-PostgreSQL
-
-Frontend
-
-Thymeleaf
-
-Custom CSS theme
-
-Ultimate Font (included under /static/fonts/)
-
-Bootstrap 5
-
-Build
-
-Maven
-
-Surefire for testing
-
-Setup Instructions
-1. Clone the Repository
+<h3>1. Clone the Repository</h3>
+<pre>
 git clone https://github.com/YourAccount/FitTrack.git
 cd FitTrack
+</pre>
 
-2. Configure PostgreSQL
-
-Create a database:
-
+<h3>2. Create the PostgreSQL Database</h3>
+<pre>
 CREATE DATABASE fittrack;
+</pre>
 
-
-Edit application.properties:
-
+<h3>3. Configure application.properties</h3>
+<pre>
 spring.datasource.url=jdbc:postgresql://localhost:5432/fittrack
 spring.datasource.username=your_user
 spring.datasource.password=your_password
 spring.jpa.hibernate.ddl-auto=update
+</pre>
 
-3. Build & Run
+<h3>4. Build & Run</h3>
+<pre>
 mvn clean install
 mvn spring-boot:run
+</pre>
 
-
-Then open in browser:
-
+<h3>5. Open in Browser</h3>
+<pre>
 http://localhost:8080
+</pre>
 
-Roadmap
-Next Features (Coming Soon)
+<hr>
 
-Client workout planner
+<h2>Roadmap</h2>
 
-Client progress history & charts
+<ul>
+    <li>Client progress tracking & charts</li>
+    <li>Workout planner system</li>
+    <li>Trainer–client appointment booking</li>
+    <li>Internal messaging</li>
+    <li>Admin dashboard</li>
+    <li>REST API for mobile app</li>
+    <li>JWT authentication</li>
+</ul>
 
-Trainer-client appointment booking
+<hr>
 
-Messaging system
+<h2>License</h2>
+<p>
+Academic project created at Harokopio University of Athens (2025).  
+Not permitted for commercial use without explicit approval.
+</p>
 
-Admin dashboard
-
-API for mobile app
-
-JWT-based authentication
-
-License
-
-Educational project created at Harokopio University of Athens (2025).
-Not licensed for commercial use unless explicitly approved.
+</body>
+</html>
