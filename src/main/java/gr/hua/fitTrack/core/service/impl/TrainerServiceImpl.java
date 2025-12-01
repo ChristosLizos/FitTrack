@@ -73,12 +73,12 @@ public class TrainerServiceImpl implements TrainerService {
 
         if(notify){
             final String content =String.format("You have succesfully registered for the Fit Track Application as a trainer. "
-                    );
-            }
+            );
+        }
         final TrainerView trainerView = this.trainerMapper.convertTrainerToTrainerView(trainerProfile);
 
         return CreateTrainerResult.success(trainerView);
-        }
+    }
 
     @Override
     public int countTrainerProfiles() {
@@ -105,7 +105,7 @@ public class TrainerServiceImpl implements TrainerService {
         return trainerProfileRepository.findAll()
                 .stream()
                 .map(tp ->tp.getPerson()
-                .getLastName())
+                        .getLastName())
                 .distinct().
                 sorted().
                 toList();
@@ -183,6 +183,3 @@ public class TrainerServiceImpl implements TrainerService {
 
     }
 }
-
-
-

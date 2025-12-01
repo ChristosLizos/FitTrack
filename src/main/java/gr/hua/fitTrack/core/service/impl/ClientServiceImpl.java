@@ -3,7 +3,6 @@ package gr.hua.fitTrack.core.service.impl;
 import gr.hua.fitTrack.core.model.ClientProfile;
 import gr.hua.fitTrack.core.model.Goals;
 import gr.hua.fitTrack.core.model.Person;
-import gr.hua.fitTrack.core.model.Progress;
 import gr.hua.fitTrack.core.repository.ClientProfileRepository;
 import gr.hua.fitTrack.core.repository.PersonRepository;
 import gr.hua.fitTrack.core.service.ClientService;
@@ -11,7 +10,6 @@ import gr.hua.fitTrack.core.service.mapper.ClientMapper;
 import gr.hua.fitTrack.core.service.model.ClientView;
 import gr.hua.fitTrack.core.service.model.CreateClientRequest;
 import gr.hua.fitTrack.core.service.model.CreateClientResult;
-import gr.hua.fitTrack.core.service.model.CreateTrainerRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
