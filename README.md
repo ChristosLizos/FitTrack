@@ -5,9 +5,10 @@
 </head>
 <body>
 
-<h1>FitTrack – Fitness Management Platform</h1>
+<h1><img src="src/main/resources/static/images/logo.png" alt="FitTrack Logo" width="140"/>
+    FitTrack – Fitness Management Platform</h1>
 
-<img src="/static/images/logo.png" alt="FitTrack Logo" width="140"/>
+
 
 <p><strong>Status:</strong> In Production / Actively Developed</p>
 
